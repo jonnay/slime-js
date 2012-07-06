@@ -79,6 +79,11 @@ If you want swank-js to run on a differnet port, add it as the third element to 
   (interactive)
   (setq slime-js-swank-buffer (apply #'make-comint "swank-js"  (expand-file-name slime-js-swank-command) nil slime-js-swank-args)))
 
+(defun slime-js-browse-test ()
+  "Interactive funciton to open the test page locally"
+  (interactive)
+  (browse-url "http://localhost:8009/swank-js/test.html"))
+
 (defun slime-js-event-hook-function (event)
   (when (equal "JS" (slime-lisp-implementation-type))
     (destructure-case event
