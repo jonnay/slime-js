@@ -37,16 +37,27 @@
 (defgroup slime-js nil "Slime Extension for Swank.js"
   :group 'slime-js)
 
-(defcustom  slime-js-swank-command "npm"
-  "Command for running the swank-js server from node.js"
+(defcustom  slime-js-swank-command "swank-js"
+  "Command for running the swank-js server from node.js
+The default is to run swank in \"global mode\" with the command
+\"swank-js\".  This means that you can issue the slime-js-run-swank
+from any buffer in any directory.
+
+Conversely, if you are working with a node project, you probably want
+to set the command to npm, with the arguments '(\"run\" \"swank\").
+This will use your package.el to "
   :type 'string
   :group 'slime-js)
 
-(defcustom slime-js-swank-args '("run" "swank")
+(defcustom slime-js-swank-args '()
   "Command arguments for running the swank-js server from node.js.
-Note that file paths need to be complete file paths, i.e. ~ to /home/you or /Uesrs/you.
-If you are using npm, then you probably want this to have 2 values: \"run\" \"swank\".
-If you want swank-js to run on a differnet port, add it as the third element to this list."
+Note that file paths need to be complete file paths, i.e. ~ 
+to /home/you or /Users/you.
+
+If you are using npm and package.js , then you probably want
+this to have 2 values: \"run\" \"swank\".
+
+If you want swank-js to run on a differnet port, add it as the last element to this list."
   :type '(repeat (string :tag "Arg"))
   :group 'slime-js)
 
